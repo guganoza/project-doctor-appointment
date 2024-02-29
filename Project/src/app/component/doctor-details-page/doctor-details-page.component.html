@@ -1,0 +1,38 @@
+<body>
+  <header>
+    <app-multi-header></app-multi-header>
+  </header>
+
+
+<!-- YourComponent.html -->
+
+<div *ngIf="selectedDoctor" class="doctor-details">
+  <div class="doctor-info-container">
+    <div class="doctor-info">
+      <h1 class="doctor-name">{{ selectedDoctor.Name }} {{ selectedDoctor.LastName }}</h1>
+      <p class="doctor-email"><label>{{"Email" | translate}}:</label> {{ selectedDoctor.Email }}</p>
+      <p class="doctor-phone"><label>{{"Phone" | translate}}:</label> {{ selectedDoctor.PhoneNumber }}</p>
+      <p class="doctor-category"><label>{{"Category" | translate}}:</label> {{ selectedDoctor.Category }}</p>
+      <p class="doctor-description"><label>{{"Description" | translate}}:</label> {{ selectedDoctor.Description }}</p>
+    </div>
+
+    <button class="book-visit-btn" (click)="openPopUp()" [style.background-color]="toggle ? 'green' : 'red'"> {{buttonText}}</button>
+  </div>
+</div>
+
+
+<div class="popUp" *ngIf="popUp">
+  <span class="close-button" (click)="closePopUp()">X</span>
+  <div class="popUp-content">
+    <mat-card class="demo-inline-calendar-card">
+      <mat-calendar [(selected)]="selected"></mat-calendar>
+    </mat-card>
+    <p>Selected date: {{selected}}</p>
+  </div>
+  <div class="buttonDiv">
+    <button class="confirm-button" (click)="confirmBook(selected)">Confirm</button>
+  </div>
+</div>
+
+
+

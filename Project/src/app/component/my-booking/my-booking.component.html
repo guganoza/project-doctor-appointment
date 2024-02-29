@@ -1,0 +1,64 @@
+<body>
+    <header>
+      <app-multi-header></app-multi-header>
+    </header>
+    
+  
+    <main>
+      <!-- Date range Search Usung DatePicker Angular Material -->
+      <div class="dateRange" [formGroup]="range">
+        <mat-form-field >
+          <mat-label>Enter a date range</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate placeholder="Start date" formControlName="start">
+            <input matEndDate placeholder="End date" formControlName="end">
+          </mat-date-range-input>
+          <mat-hint>MM/DD/YYYY - MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+      
+          <!-- Use Angular ngIf directive for conditional rendering -->
+          <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+          <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+        </mat-form-field>
+        <div class="btn">
+          <button class="searchBtn" (click)="logDates()">{{"Search" | translate}}</button>
+          <button class="resetBtn" (click)="reset()">{{"Reset" | translate}}</button>
+        </div>
+      </div>
+      
+      <!-- Searched Booked Doctor -->
+      <div *ngIf="filteredDoctors.length > 0; else defaultData">
+        <div class="booking-details-container" *ngFor="let BookedDoctor of filteredDoctors; let i = index">
+          <h1>{{ BookedDoctor.name }} {{ BookedDoctor.lastName }}</h1>
+          <p class="category">{{ BookedDoctor.category }}</p>
+          <p class="visit-date">{{"Visit Date" | translate}}: {{ SeachedBookedDoctorDate[i] | date:'medium' }}</p>
+
+          <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p>{{"Phone" | translate}}: {{ BookedDoctor.phoneNumber }}</p>
+            <p>{{"Email" | translate}}: {{ BookedDoctor.email }}</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Default Boooked Doctor -->
+      <ng-template #defaultData>
+        <div class="booking-details-container" *ngFor="let BookedDoctor of BookedDoctors; let i = index">
+          <h1>{{ BookedDoctor.name }} {{ BookedDoctor.lastName }}</h1>
+          <p class="category">{{ BookedDoctor.category }}</p>
+          <p class="visit-date">{{"Visit Date" | translate}}: {{ BookedDoctorDate[i] | date:'medium' }}</p>
+        
+          <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p>{{"Phone" | translate}}: {{ BookedDoctor.phoneNumber }}</p>
+            <p>{{"Email" | translate}}: {{ BookedDoctor.email }}</p>
+          </div>
+        </div>
+      </ng-template>
+
+      
+    </main>
+    
+</body>
+  

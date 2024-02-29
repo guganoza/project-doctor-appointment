@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+// Main page
+main {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 20px;
+}
+
+.booking-details-container {
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+}
+
+
+h1 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.category {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.visit-date {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.contact-info {
+    margin-top: 20px;
+}
+
+.contact-info h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.host {
+    display: block;
+    padding: 1rem;
+    max-width: 600px;
+}
+
+// Date Range
+
+.dateRange {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+    gap: 11rem;
+}
+
+.mat-mdc-text-field-wrapper mdc-text-field {
+    background-color: #2ecc71;
+}
+
+mat-hint {
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.searchBtn {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.resetBtn {
+    padding: 10px;
+    background-color: #af0035;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.searchBtn:hover {
+    background-color: #0056b3;
+}
+
+.resetBtn:hover {
+    background-color: #c71349;
+}
+
+.btn {
+    display: flex;
+    gap: 1rem;
+}
+
+
+// Responsive
+
+@media only screen and (max-width: 480px) { 
+    .dateRange {
+        gap: 3rem;
+        flex-wrap: wrap;
+    }
+}

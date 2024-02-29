@@ -1,0 +1,28 @@
+<div class="container">
+  <form (ngSubmit)="registerAdmin()" #registerForm="ngForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="name" required />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" [(ngModel)]="email" required />
+
+    <label for="password">Password:</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      [(ngModel)]="password"
+      required
+    />
+
+    <button type="submit">Register</button>
+    <span>
+      <a
+        [routerLink]="['/admin-page']"
+        style="text-decoration: none"
+        class="Login"
+        >Back to Dashboard</a
+      >
+    </span>
+  </form>
+</div>

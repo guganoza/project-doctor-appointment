@@ -1,0 +1,424 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+// Main page
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.doctor-search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 0;
+  border-bottom: 1px solid #ccc;
+
+  h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .search-inputs {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .input-search {
+      width: 200px;
+      height: 40px;
+      border: 2px solid #ccc;
+      border-radius: 20px;
+      padding: 5px 10px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .search-btn {
+      width: 100px;
+      height: 45px;
+      border: none;
+      border-radius: 20px;
+      background-color: #3498db;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #2980b9;
+      }
+    }
+  }
+}
+
+.doctor-details {
+  display: flex;
+  gap: 30px;
+  margin: 30px 0;
+
+  .doctor-image {
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .doctor-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    .info-row {
+      display: flex;
+      margin-bottom: 20px;
+      align-items: center;
+
+      h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+
+      .label {
+        font-size: 14px;
+        color: #777;
+        margin-right: 10px;
+      }
+
+      .value {
+        font-size: 16px;
+        color: #4d4d4d;
+      }
+
+      .view-btn {
+        width: 120px;
+        height: 40px;
+        border: none;
+        border-radius: 20px;
+        background-color: #3498db;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: #2980b9;
+        }
+        &.disabled-btn {
+          background-color: red;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+
+// Footer
+
+footer {
+  width: 100%;
+  height: 100px;
+  background-color: #35959c;
+  display: flex;
+  position: relative;
+  margin-top: 10rem;
+  bottom: 0;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+footer p {
+  color: rgb(73, 73, 73);
+}
+
+// Searched Doctor
+
+.details {
+  width: 60%;
+  margin-top: 3rem;
+  display: flex;
+  gap: 3rem;
+  background-color: aliceblue;
+}
+
+.images {
+  width: 250px;
+  height: 250px;
+}
+
+.images img {
+  width: 100%;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  line-height: 3rem;
+  justify-content: center;
+}
+
+.view-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px 0;
+}
+
+.view {
+  height: 40px;
+  padding: 0 20px;
+  border: none;
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.view:hover {
+  background-color: rgb(100, 100, 255);
+}
+
+@media only screen and (max-width: 480px) {
+  .main-container {
+    justify-content: center;
+  }
+  .search-inputs {
+    flex-direction: column;
+
+    .input-search {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .search-btn {
+      width: 100%;
+    }
+  }
+
+  .doctor-info {
+    width: 250px;
+    .info-row {
+      h1 {
+        font-size: 20px;
+      }
+
+      .label {
+        font-size: 14px;
+      }
+
+      .value {
+        font-size: 16px;
+      }
+
+      .view-btn {
+        width: 80px;
+        height: 25px;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .doctor-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .search-inputs {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+  }
+  .doctor-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+
+    .doctor-image {
+      width: 350px;
+      height: 300px;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+  }
+
+  .doctor-info {
+    width: 350px;
+    .info-row {
+      h1 {
+        font-size: 20px;
+      }
+
+      .label {
+        font-size: 14px;
+      }
+
+      .value {
+        font-size: 16px;
+      }
+
+      .view-btn {
+        width: 100px;
+        height: 30px;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+/* Medium screens */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  .doctor-search {
+    padding: 15px 0;
+
+    h2 {
+      font-size: 18px;
+    }
+
+    .search-inputs {
+      .input-search {
+        width: 180px;
+        height: 35px;
+        font-size: 16px;
+      }
+
+      .search-btn {
+        width: 90px;
+        height: 40px;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .doctor-details {
+    padding: 0 20px;
+    .doctor-info {
+      .info-row {
+        h1 {
+          font-size: 20px;
+        }
+
+        .label {
+          font-size: 14px;
+        }
+
+        .value {
+          font-size: 16px;
+        }
+
+        .view-btn {
+          width: 80px;
+          height: 25px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+/* Large screens */
+@media only screen and (min-width: 960px) and (max-width: 1023px) {
+  .search-inputs {
+    .input-search {
+      width: 250px;
+      height: 40px;
+      font-size: 18px;
+    }
+
+    .search-btn {
+      width: 120px;
+      height: 45px;
+      font-size: 18px;
+    }
+  }
+
+  .doctor-details {
+    padding: 0 20px;
+    .doctor-info {
+      .info-row {
+        h1 {
+          font-size: 24px;
+        }
+
+        .label {
+          font-size: 16px;
+        }
+
+        .value {
+          font-size: 18px;
+        }
+
+        .view-btn {
+          width: 100px;
+          height: 30px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+/* Extra-large screens */
+@media only screen and (min-width: 1024px) and (max-width: 1279px) {
+  .search-inputs {
+    .input-search {
+      width: 300px;
+      height: 50px;
+      font-size: 20px;
+    }
+
+    .search-btn {
+      width: 150px;
+      height: 55px;
+      font-size: 20px;
+    }
+  }
+
+  .doctor-details {
+    padding: 0 20px;
+    .doctor-info {
+      .info-row {
+        h1 {
+          font-size: 28px;
+        }
+
+        .label {
+          font-size: 18px;
+        }
+
+        .value {
+          font-size: 20px;
+        }
+
+        .view-btn {
+          width: 120px;
+          height: 35px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

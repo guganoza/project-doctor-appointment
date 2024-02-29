@@ -1,0 +1,72 @@
+<div class="container">
+  <form (ngSubmit)="registerDoctor()" #registerForm="ngForm">
+    <div>
+      <label for="passcode">Enter Passcode:</label>
+      <input
+        type="password"
+        id="passcode"
+        [(ngModel)]="passcode"
+        name="passcode"
+        required
+      />
+    </div>
+
+    <label for="category">Category:</label>
+    <input
+      type="text"
+      id="category"
+      name="category"
+      [(ngModel)]="category"
+      required
+    />
+
+    <label for="description">Description:</label>
+    <input
+      type="text"
+      id="description"
+      name="description"
+      [(ngModel)]="description"
+      required
+    />
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="name" required />
+
+    <label for="lastName">Last Name:</label>
+    <input
+      type="text"
+      id="lastName"
+      name="lastName"
+      [(ngModel)]="lastName"
+      required
+    />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" [(ngModel)]="email" required />
+
+    <label for="phone">Phone:</label>
+    <input
+      type="text"
+      id="phone"
+      name="phone"
+      [(ngModel)]="phoneNumber"
+      required
+    />
+
+    <label for="password">Password:</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      [(ngModel)]="password"
+      required
+    />
+
+    <button type="submit">Register</button>
+    <span>
+      <a [routerLink]="['/login']" style="text-decoration: none" class="Login"
+        >Back to Login</a
+      >
+    </span>
+  </form>
+</div>

@@ -1,0 +1,33 @@
+<header>
+    <div class="container">
+      <h2 class="logo">Doctor appointment</h2>
+
+      <nav class="navbar">
+        <ul>
+            <li [routerLink]="['/dashboard']">{{"Home" | translate}}</li>
+
+            <li [routerLink]="['/my-booking']" >{{"My-Bookings" | translate}}</li>
+        </ul>
+      </nav>
+
+      <div *ngIf="currentUser" class="user">
+        <h4 class="Welcome" (click)="DropDownClick()">{{"WELCOME" | translate}}, {{ currentUser }} </h4>
+        <div class="dropdown" *ngIf="DropDown">
+          <li [routerLink]="['/dashboard']">{{"Home" | translate}}</li>
+
+          <li [routerLink]="['/my-booking']" >{{"My-Bookings" | translate}}</li>
+
+          <button type="button" class="btn btn-info logOutDrop" (click)="logOut()">
+            {{"Log Out" | translate}}
+          </button>
+
+          <button class="language dropLanguage" (click)="changeLanguage()">{{"ENG" | translate}}</button>
+        </div>
+        <button type="button" class="btn btn-info logOut" (click)="logOut()">
+          {{"Log Out" | translate}}
+        </button>
+
+        <button class="language" (click)="changeLanguage()">{{"ENG" | translate}}</button>
+      </div>
+    </div>
+</header>

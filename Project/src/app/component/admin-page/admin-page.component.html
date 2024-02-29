@@ -1,0 +1,85 @@
+<body>
+  <header>
+    <a
+      [routerLink]="['/admin-register']"
+      style="text-decoration: none"
+      class="register"
+      >Register new Admin</a
+    >
+    <button type="button" class="btn btn-info logOutDrop" (click)="logOut()">
+      {{ " Log Out " | translate }}
+    </button>
+  </header>
+
+  <main>
+    <div class="main-container">
+      <div class="doctor-search">
+        <h2>{{ "Search for a Doctor" | translate }}</h2>
+        <div class="search-inputs">
+          <input
+            type="text"
+            class="input-search"
+            placeholder="{{ 'Name' | translate }}"
+            [(ngModel)]="searchName"
+          />
+          <input
+            type="text"
+            class="input-search"
+            placeholder="{{ 'Last Name' | translate }}"
+            [(ngModel)]="searchLastName"
+          />
+          <input
+            type="text"
+            class="input-search"
+            placeholder="{{ 'Category' | translate }}"
+            [(ngModel)]="searchCategory"
+          />
+          <button type="submit" class="search-btn" (click)="searchDoctors()">
+            {{ "Search" | translate }}
+          </button>
+        </div>
+      </div>
+
+      <div
+        class="doctor-details"
+        *ngFor="let doctor of filteredDoctors$ | async"
+      >
+        <div class="doctor-image">
+          <img src="../../../assets/9439520.jpg" alt="Doctor Image" />
+        </div>
+        <div class="doctor-info">
+          <div class="info-row">
+            <h1>{{ doctor.Name }} {{ doctor.LastName }}</h1>
+          </div>
+          <div class="info-row">
+            <div class="label">{{ "Category" | translate }}:</div>
+            <div class="value">{{ doctor.Category }}</div>
+          </div>
+          <div class="info-row">
+            <div class="label">{{ "Description" | translate }}:</div>
+            <div class="value">{{ doctor.Description }}</div>
+          </div>
+          <div class="info-row">
+            <button class="view-btn" (click)="onDeleteDoctor(doctor.Id)">
+              {{ "Delete" | translate }}
+            </button>
+            <button
+              class="view-btn"
+              [ngClass]="{ 'disabled-btn': !doctor.enabled }"
+              (click)="disableDoctor(doctor.Id)"
+            >
+              {{ doctor.enabled ? "disable" : "enable" }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>
+      &#64; Created by Guga Nozadze & Anzori Sakhelashvili <br />
+      2024-Angular-Project
+    </p>
+  </footer>
+</body>
